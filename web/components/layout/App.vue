@@ -1,19 +1,21 @@
 <template>
-  <router-view :reactiveFetchData="reactiveFetchData" />
+  <router-view />
 </template>
 
 <script lang="ts" setup>
-import {  App } from 'vue'
-import {Button} from 'vant';
- let props =defineProps<{
-  ssrApp: App,
-  reactiveFetchData: any,
-  asyncData: any
-}>()
+import { App } from "vue";
+import { useElemntUi } from "@/vhooks/useUI";
 
-props.ssrApp.use(Button)
+let props = defineProps<{
+  ssrApp: App;
+  reactiveFetchData: any;
+}>();
+
+useElemntUi(props.ssrApp)
+
+
 </script>
 
 <style lang="less">
-@import '@/common.less';
+@import "@/common.less";
 </style>

@@ -1,13 +1,13 @@
 
 <template>
   <div class="home">
-    <MHeader></MHeader>
+    <SHeader></SHeader>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { useIndexStore } from '@/pinia-store'
-import MHeader from '@/components/mHeader/index.vue';
+import SHeader from '@/components/header/index.vue';
 
 </script>
 

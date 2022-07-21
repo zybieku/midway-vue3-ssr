@@ -3,30 +3,52 @@
     <header class="m-header">
         <div class="m-menu-item logo" role="menuitem" tabindex="0">LOGO</div>
         <ul role="menubar" style="--el-menu-level:0;" class="m-header-menu">
-            <li class="m-menu-item is-active" role="menuitem" tabindex="0">
-                <a href="/home/page/index/id/1.html?lang=cn" target="_self">首页</a>
-            </li>
-            <li class="m-menu-item" role="menuitem" tabindex="0">
-                <a href="/home/page/index/id/1.html?lang=cn" target="_self">关于我们</a>
-            </li>
-            <li class="m-menu-item" role="menuitem" tabindex="0">
-                投资理念
-            </li>
-            <li class="m-menu-item" role="menuitem" tabindex="0">
-                产品中心
-            </li>
-            <li class="m-menu-item" role="menuitem" tabindex="0">
-                联系我们
-            </li>
-            <li class="m-menu-item" role="menuitem" tabindex="0">
-                中英文
+            <li :class="['m-menu-item', activeIndex === index ? 'active' : '']" role="menuitem"
+                v-for="(menu, index) in menuList" :key="index" @mouseenter="handleMouseEnter(index)">
+                <a :href="menu.url" target="_self">{{ menu.title }}</a>
+                <template v-if="menu.children.length">
+                    <ul class="popper" v-show="hoverIndex === index">
+                        <li v-for="(childMenu, cIndex) in menu.children" :key="index + '_' + cIndex"
+                            @mouseenter="handleMouseEnter(index)">
+                            <a :href="childMenu.url" target="_self">{{ childMenu.title }}</a>
+                        </li>
+                    </ul>
+                </template>
+
+
             </li>
         </ul>
     </header>
 </template>
 <script lang="ts" setup>
+import { useMenuStore } from '@/pinia-store';
+import { computed, ref } from 'vue';
+
+let hoverIndex = ref(-1)
+let activeIndex = ref(0)
+
+let menuList = computed(() => {
+    let menus = useMenuStore().menuList
+    return menus.filter((menu) => {
+        let children = menus.filter((childMenu) => {
+            return menu.id === childMenu.parentId
+        })
+        menu.children = children
+        return menu.parentId === 0
+    })
+})
+
+let handleMouseEnter = (index: number) => {
+    hoverIndex.value = index
+}
+
 </script>
+
 <style lang="less">
+.m-header {
+    --m-item-height: 66px;
+}
+
 .m-header {
     width: 100%;
     display: flex;
@@ -58,7 +80,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            line-height: 66px;
+            line-height: var(--m-item-height);
             color: var(--el-text-color-primary);
             font-size: var(--el-font-size-large);
             padding: 0 20px;
@@ -69,12 +91,11 @@
             margin: 0;
             font-weight: bold;
 
-            .is-active {
-                // a {
-                //     border-bottom: 2px solid var(--el-menu-active-color);
-                //     color: var(--el-menu-active-color) !important;
-                // }
-
+            &.active {
+                a {
+                    border-bottom: 2px solid var(--el-color-primary);
+                    color: var(--el-color-primary) !important;
+                }
             }
 
             a {
@@ -85,6 +106,20 @@
             a:hover {
                 border-bottom: 2px solid var(--el-color-primary);
                 color: var(--el-color-primary) !important;
+            }
+        }
+
+        .popper {
+            position: absolute;
+            width: 100%;
+            top: calc(var(--m-item-height) + 2px);
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            li {
+                height: 40px;
             }
         }
 

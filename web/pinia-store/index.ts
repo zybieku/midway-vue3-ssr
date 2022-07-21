@@ -1,9 +1,5 @@
-import { useIndexStore } from './modules/index'
-import { useDetailStore } from './modules/detail'
-import { useSearchStore } from './modules/search'
+import { useIndexStore } from "./modules/index";
+import { useDetailStore } from "./modules/detail";
+import { useMenuStore } from "./modules/menu";
 
-export {
-  useIndexStore,
-  useDetailStore,
-  useSearchStore
-}
+export { useIndexStore, useDetailStore, useMenuStore };

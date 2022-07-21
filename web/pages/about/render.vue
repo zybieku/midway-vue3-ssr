@@ -1,18 +1,18 @@
 
 <template>
-  <div class="home">
-    <SHeader></SHeader>
+  <div class="about">
+    <MHeader></MHeader>
+    this is about
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useIndexStore } from '@/pinia-store'
-import SHeader from '@/components/header/index.vue';
+import MHeader from '@/components/mHeader/index.vue';
 
 </script>
 
 <style lang="less">
-.home {
+.about {
   width: 100%;
   display: flex;
   flex-direction: column;

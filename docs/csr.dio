@@ -1,0 +1,104 @@
+<mxfile host="65bd71144e">
+    <diagram id="DrtUZMrDOj6P9-n5q93P" name="第 1 页">
+        <mxGraphModel dx="1253" dy="909" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="nginx" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;lifelineDashed=0;" vertex="1" parent="1">
+                    <mxGeometry x="293.5" y="190" width="120" height="580" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="node(java)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;lifelineDashed=0;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="190" width="120" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="执行后台,&lt;br&gt;加载数据库" style="shape=mxgraph.uml25.action;html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;spacingRight=10;fontColor=#FFB366;" vertex="1" parent="5">
+                    <mxGeometry x="10" y="380" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;fontColor=#FFB366;" edge="1" parent="5" target="4">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="60" y="450" as="sourcePoint"/>
+                        <mxPoint x="220" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="返回接口数据" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFB366;" vertex="1" connectable="0" parent="27">
+                    <mxGeometry x="0.1421" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="browser" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;lifelineDashed=0;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="190" width="120" height="580" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="endArrow=block;startArrow=none;endFill=0;startFill=0;endSize=8;html=1;verticalAlign=bottom;dashed=1;labelBackgroundColor=none;" edge="1" parent="6" target="4">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="60" y="120" as="sourcePoint"/>
+                        <mxPoint x="220" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="获取数据,&lt;br&gt;前端再生成vdom,&lt;br&gt;再渲染实际dom" style="shape=mxgraph.uml25.action;html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;spacingLeft=10;flipH=1;fontColor=#FFB366;" vertex="1" parent="6">
+                    <mxGeometry y="510" width="110" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="输入url" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#FFB366;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="280" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;span style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#ffb366&quot;&gt;加载web代码&lt;/font&gt;&lt;/span&gt;" style="shape=mxgraph.uml25.action;html=1;align=center;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;spacingRight=10;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="330" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="353" y="381" as="sourcePoint"/>
+                        <mxPoint x="169.5" y="381" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="250" y="381"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="&lt;font color=&quot;#ffb366&quot;&gt;返回未渲染html&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#FFCC99;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="383" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="shape=mxgraph.uml25.action;html=1;align=left;verticalAlign=middle;absoluteArcSize=1;arcSize=10;dashed=0;spacingLeft=10;flipH=1;fontColor=#FFB366;" vertex="1" parent="1">
+                    <mxGeometry x="106" y="422" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="加载js,&#10;render生成vdom,&#10;渲染实际dom" style="text;verticalAlign=middle;align=left;fontColor=#FFB366;" vertex="1" parent="15">
+                    <mxGeometry x="20" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;fontColor=#FFB366;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="169.5" y="519" as="sourcePoint"/>
+                        <mxPoint x="353" y="519" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="519"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="axios请求接口" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#FFB366;" vertex="1" parent="1">
+                    <mxGeometry x="215" y="490" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;fontColor=#FFB366;" edge="1" parent="1" source="4" target="5">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="370" y="540" as="sourcePoint"/>
+                        <mxPoint x="530" y="540" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="460" y="550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="nginx转发到后台,调取实际接口" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#FFB366;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="520" width="180" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;fontColor=#FFB366;" edge="1" parent="1">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="351.75" y="670" as="sourcePoint"/>
+                        <mxPoint x="168.25" y="670" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="288.75" y="670"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="返回数据" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFB366;" vertex="1" connectable="0" parent="20">
+                    <mxGeometry x="0.1253" y="-4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

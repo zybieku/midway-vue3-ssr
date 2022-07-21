@@ -1,14 +1,14 @@
+import { defineStore } from "pinia";
 
-import { defineStore } from 'pinia'
-import { IndexData } from '~/typings/data'
+interface IndexData {}
 
-export const useIndexStore = defineStore('indexStore', {
+export const useIndexStore = defineStore("indexStore", {
   state: () => {
-    return { data: {} } as IndexData
+    return { data: {} as IndexData };
   },
   actions: {
-    setData (payload: any) {
-      this.data = payload.data
-    }
-  }
-})
+    setData(indexData) {
+      this.data = indexData;
+    },
+  },
+});

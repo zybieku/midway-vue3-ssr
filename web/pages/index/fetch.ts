@@ -1,13 +1,14 @@
-import { Params } from "~/typings/data";
-import { useIndexStore } from "@/pinia-store";
+import { useIndexStore, useMenuStore } from "@/pinia-store";
+import { useFetch } from "@/vhooks";
 
-export default async ({ pinia, router, ctx }: Params) => {
+export default async ({ pinia, router, ctx }) => {
+  let menuStore = useMenuStore(pinia);
   const indexStore = useIndexStore(pinia);
-  const data = __isBrowser__
-    ? await (await window.fetch("/api/index")).json()
-    : await ctx?.apiService?.index();
-  return {
-    title: "测试",
-    keywords: "server side render",
-  };
+  const { headData, menuList, data } = __isBrowser__
+    ? await useFetch(ctx.url)
+    : await ctx?.indexService.page();
+
+  menuStore.setData(menuList);
+  indexStore.setData(data);
+  return headData;
 };

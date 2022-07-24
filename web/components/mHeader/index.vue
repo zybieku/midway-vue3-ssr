@@ -5,8 +5,8 @@
             <img class="logo-img" src="/img/logo.png" alt="logo">
         </a>
         <ul role="menubar" style="--el-menu-level:0;" class="m-header-menu">
-            <li :class="['m-menu-item', activeIndex === index ? 'active' : '']" role="menuitem"
-                v-for="(menu, index) in menuList" :key="index" @mouseenter="handleMouseEnter(index)">
+            <li role="menuitem" v-for="(menu, index) in menuList" :key="index"
+                :class="['m-menu-item', menu.url === actived ? 'active' : '']" @mouseenter="handleMouseEnter(index)">
                 <a :href="menu.url" target="_self">{{ menu.title }}</a>
                 <template v-if="menu.children.length">
                     <ul class="popper" v-show="hoverIndex === index">
@@ -25,9 +25,12 @@
 <script lang="ts" setup>
 import { useMenuStore } from '@/pinia-store';
 import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 let hoverIndex = ref(-1)
-let activeIndex = ref(0)
+let actived = computed(() => {
+    return useRoute().path
+})
 
 let menuList = computed(() => {
     let menus = useMenuStore().menuList

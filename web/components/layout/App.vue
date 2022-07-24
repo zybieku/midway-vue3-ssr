@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts" setup>
-import { App } from "vue";
-import { useElemntUi } from "@/vhooks/useUI";
+// import { App } from "vue";
+// import { useElemntUi } from "@/vhooks/useUI";
 
-let props = defineProps<{
-  ssrApp: App;
-  reactiveFetchData: any;
-}>();
+// defineProps<{
+//   ssrApp: App;
+//   reactiveFetchData: any;
+// }>();
 
-useElemntUi(props.ssrApp)
+// useElemntUi(props.ssrApp)
 
 
 </script>

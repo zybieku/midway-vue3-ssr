@@ -1,7 +1,9 @@
 
 <template>
     <header class="m-header">
-        <div class="m-menu-item logo" role="menuitem" tabindex="0">LOGO</div>
+        <a class="m-menu-item logo" href="/">
+            <img class="logo-img" src="/img/logo.png" alt="logo">
+        </a>
         <ul role="menubar" style="--el-menu-level:0;" class="m-header-menu">
             <li :class="['m-menu-item', activeIndex === index ? 'active' : '']" role="menuitem"
                 v-for="(menu, index) in menuList" :key="index" @mouseenter="handleMouseEnter(index)">
@@ -47,6 +49,7 @@ let handleMouseEnter = (index: number) => {
 <style lang="less">
 .m-header {
     --m-item-height: 66px;
+    --m-text-color: var(--hm-color-white);
 }
 
 .m-header {
@@ -54,12 +57,19 @@ let handleMouseEnter = (index: number) => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: solid 1px var(--el-border-color);
-    border-right: solid 1px var(--el-border-color);
+    position: fixed;
+    top: 0;
+    z-index: 99;
     padding: 0 7%;
+    background-color: var(--hm-bg-color);
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.0800);
 
     .logo {
-        width: 200px;
+        width: 211px;
+
+        .logo-img {
+            width: 100%;
+        }
     }
 
     &-menu {
@@ -70,31 +80,29 @@ let handleMouseEnter = (index: number) => {
         position: relative;
         margin: 0;
         padding-left: 0;
-        background-color: var(--el-color-white);
         box-sizing: border-box;
 
 
         .m-menu-item {
-            width: 180px;
+            width: 160px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
             line-height: var(--m-item-height);
-            color: var(--el-text-color-primary);
-            font-size: var(--el-font-size-large);
+            color: var(--hm-color-white);
+            font-size: 16px;
             padding: 0 20px;
             list-style: none;
             cursor: pointer;
             position: relative;
             white-space: nowrap;
             margin: 0;
-            font-weight: bold;
 
             &.active {
                 a {
-                    border-bottom: 2px solid var(--el-color-primary);
-                    color: var(--el-color-primary) !important;
+                    color: var(--hm-border-color);
+                    border-bottom: 2px solid var(--hm-border-color);
                 }
             }
 
@@ -104,8 +112,8 @@ let handleMouseEnter = (index: number) => {
             }
 
             a:hover {
-                border-bottom: 2px solid var(--el-color-primary);
-                color: var(--el-color-primary) !important;
+                color: var(--hm-border-color);
+                border-bottom: 2px solid var(--hm-border-color);
             }
         }
 
@@ -117,6 +125,7 @@ let handleMouseEnter = (index: number) => {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: var(--hm-bg-color);
 
             li {
                 height: 40px;

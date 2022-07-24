@@ -1,12 +1,28 @@
+html {
+  font-family: PingFang-SC, "Microsoft Yahei", "微软雅黑", PingFang-SC-Regular,
+    Arial;
+}
 
-*,*::after {
+:root {
+  --hm-color-primary: #222222;
+  --hm-color-warning: #d7ba70;
+  --hm-color-white: #ffffff;
+  --hm-color-black: #000000;
+  --hm-text-color: var(--hm-color-black);
+  --hm-bg-color: var(--hm-color-primary);
+  --hm-border-color: var(--hm-color-warning);
+  --hm-btn-bg-color: #1b1b1b;
+}
+
+*,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 a {
-  color: #303133;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -14,5 +30,17 @@ ul {
   list-style: none;
 }
 
+h3 {
+  font-size: 36px;
+}
 
-
+p {
+  border: none;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 48px;
+  word-wrap: break-word;
+  word-break: break-all;
+  letter-spacing: 3px;
+  text-align: justify;
+}
